@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import './App.css';
-import useScrapper from './useScrapper.mjs'
-// import {useState, useEffect, useRef} from 'react';
+import scrape from './scrape.mjs'
+import {useState, useEffect} from 'react';
 
 const url = "/GauriLaxmi-Enterprise-Cotton-Blend-Medium/dp/B0BB3DQJDR/ref=lp_1968248031_1_1?psc=1";
 
@@ -24,8 +25,21 @@ const Sizes = () => {
 }
 
 function App() {
+  
+  const [data,setData] = useState({});
 
-  const data = useScrapper(url);
+  useEffect( () => {
+    scrape(url)
+    .then((response) => {
+      setData(response);
+    })
+    .catch (err => {
+      console.log(err.message);
+      console.log("oops");
+    });
+  },[]);
+
+  console.log(data);
 
   return (
     <div className="App">
