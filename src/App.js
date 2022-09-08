@@ -2,7 +2,7 @@ import './App.css';
 import useScrapper from './useScrapper.mjs'
 // import {useState, useEffect, useRef} from 'react';
 
-const url = "https://www.amazon.in/GauriLaxmi-Enterprise-Cotton-Blend-Medium/dp/B0BB3DQJDR/ref=lp_1968248031_1_1?psc=1";
+const url = "/GauriLaxmi-Enterprise-Cotton-Blend-Medium/dp/B0BB3DQJDR/ref=lp_1968248031_1_1?psc=1";
 
 const Sizespan = (props) => {
   return ( <span>{props.label}</span> )
@@ -31,7 +31,7 @@ function App() {
     <div className="App">
 
       <div className="card">
-        <div className="cardImg" />
+        <img className="cardImg" src={data.imgURL} alt="product" />
 
         <div className="info">
 
